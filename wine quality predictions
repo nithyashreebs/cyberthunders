@@ -1,0 +1,36 @@
+#Import Modules
+import pandas as pd
+import numpy as np
+import seaborn as sb
+import matplotlib.pyplot as plt
+%matplotlib inline 
+
+#LOADING THE DATASET 
+df=pd.read_csv('winequalityN.csv')
+df.head()
+
+#statistical info 
+df.describe()
+
+#datatype info 
+df.info()
+
+#check for null values 
+df.isnull().sum 
+
+df.hist(bins=25,figsize=(10,10))
+# display histogram
+plt.show()
+
+plt.figure(figsize=[10,6])
+# plot bar graph
+plt.bar(df['quality'],df['alcohol'],color='red')
+# label x-axis
+plt.xlabel('quality')
+#label y-axis
+plt.ylabel('alcohol')
+
+# ploting heatmap
+plt.figure(figsize=[19,10],facecolor='blue')
+sb.heatmap(df.corr(),annot=True) 
+
